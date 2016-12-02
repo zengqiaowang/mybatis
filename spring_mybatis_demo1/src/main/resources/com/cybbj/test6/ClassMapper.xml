@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 一对一与一对多两表关联查询测试 -->  
+<mapper namespace="com.cybbj.test6.ClassMapper">
+	<!-- 关联多表查询例子（嵌套结果） -->
+	<select id="getClassById" parameterType="java.lang.Integer" resultMap="getClassByIdMap">
+		select c.i_id,c.v_class_no,c.v_class_name,c.i_teacher_id,st.i_id st_i_id,st.v_name st_v_name from t_classes c,t_student st where c.i_id=st.i_class_id and c.i_id=#{id}
+	</select>
+	
+	<!-- 关联多表查询例子（嵌套结果） -->
+	<resultMap type="com.cybbj.test6.Classes" id="getClassByIdMap">
+		<!-- id是专门针对主键 -->
+		<id property="id" column="i_id"/>
+		<!-- property 用于非主键 -->
+		<result property="classNo" column="v_class_no"/>
+		<result property="className" column="v_class_name"/>
+		<!-- 一对一 -->
+		<association property="teacher" javaType="com.cybbj.test5.Teacher">
+			<result property="teacherNo" column="v_teacher_no"/>
+			<result property="teacherName" column="v_teacher_name"/>
+		</association>
+		<!-- 一对多 -->
+		<collection property="list" ofType="com.cybbj.test6.Student" >
+			<id property="id" column="st_i_id"/>
+			<result property="name" column="st_v_name"/>
+		</collection>
+	</resultMap>
+	
+	
+	<!-- 嵌套查询 -->
+	<select id="getClassById2" parameterType="java.lang.Integer" resultMap="getClassByIdMap2">
+		select * from t_classes where i_id=#{id}
+		
+	</select>
+	<select id="getTeacher" parameterType="java.lang.Integer" resultType="com.cybbj.test5.Teacher">
+		select i_id id,v_teacher_no teacherNo,v_teacher_name teacherName from t_teacher where i_id=#{id}
+	</select>
+	<select id="getStudent" parameterType="java.lang.Integer" resultType="com.cybbj.test6.Student">
+		select i_id id,v_name name from t_student where i_class_id=#{classID}
+	</select>
+
+	<resultMap type="com.cybbj.test6.Classes" id="getClassByIdMap2">
+		<id property="id" column="i_id"/>
+		<result property="classNo" column="v_class_no"/>
+		<result property="className" column="v_class_name"/>
+		<association property="teacher" javaType="com.cybbj.test5.Teacher" column="i_teacher_id"  select="getTeacher">	
+		</association>
+		
+		<collection property="list" column="i_id" select="getStudent">
+		</collection>
+		 
+	</resultMap>
+	
+</mapper>

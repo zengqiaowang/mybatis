@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 主要用于测试表的字段名与类的属性名不一致的处理方式====可以使用别名解决 -->  
+<mapper namespace="com.cybbj.test4.OrderMapper">
+	<select id="getOrderById" parameterType="java.lang.Integer" resultType="com.cybbj.test4.Order">
+		select i_id id,v_order_name orderName,v_order_no orderNo from t_order where i_id=#{id}
+	</select>
+	
+	<select id="getOrderById2" parameterType="java.lang.Integer" resultMap="getOrderById2Map">
+		select * from t_order where i_id=#{id}
+	</select>
+	
+	<!-- resultMap主要用于封装键值对的 -->
+	<resultMap type="com.cybbj.test4.Order" id="getOrderById2Map">
+		<!-- id是专门针对主键 -->
+		<id property="id" column="i_id"/>
+		<!-- property 用于非主键 -->
+		<result property="orderName" column="v_order_name"/>
+		<result property="orderNo" column="v_order_no"/>
+	</resultMap>
+</mapper>

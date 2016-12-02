@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 测试一级与二级缓存 -->  
+<mapper namespace="com.cybbj.test8.UserMapper">
+	<cache/>
+
+	<select id="getUserByConditionIf" parameterType="com.cybbj.test7.ConditionUser" resultType="com.cybbj.test7.User">
+		select i_id id,v_name name,i_age age from t_user where 
+			<if test="name!=null and name!=''">
+				v_name like "%"#{name}"%"
+			</if>
+			<if test="minAge!=null and minAge!=0 and maxAge!=null and maxAge!=''">
+				and i_age between #{minAge} and #{maxAge}
+			</if>
+	</select>
+	
+	<insert id="insertUser" parameterType="com.cybbj.test7.ConditionUser">
+		insert into t_user(v_name,i_age) values(#{name},#{minAge})
+	</insert>
+	
+</mapper>

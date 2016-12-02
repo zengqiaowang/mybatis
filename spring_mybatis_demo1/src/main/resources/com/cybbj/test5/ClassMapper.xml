@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 一对一两表关联查询测试 -->  
+<mapper namespace="com.cybbj.test5.ClassMapper">
+	<!-- 关联多表查询例子（嵌套结果） -->
+	<select id="getClassById" parameterType="java.lang.Integer" resultMap="getClassByIdMap">
+		select * from t_classes c,t_teacher t where c.i_teacher_id=t.i_id and c.i_id=#{id}
+	</select>
+	
+	<!-- 关联多表查询例子（嵌套结果） -->
+	<resultMap type="com.cybbj.test5.Classes" id="getClassByIdMap">
+		<!-- id是专门针对主键 -->
+		<id property="id" column="i_id"/>
+		<!-- property 用于非主键 -->
+		<result property="classNo" column="v_class_no"/>
+		<result property="className" column="v_class_name"/>
+		<association property="teacher" javaType="com.cybbj.test5.Teacher" >
+			<id property="id" column="i_id"/>
+			<result property="teacherNo" column="v_teacher_no"/>
+			<result property="teacherName" column="v_teacher_name"/>
+		</association>
+	</resultMap>
+	
+	<!-- 关联多表查询例子（嵌套查询） -->
+	<select id="getClassById2" parameterType="java.lang.Integer" resultMap="getClassByIdMap2">
+		select * from t_classes c where c.i_id=#{id}
+	</select>
+	<select id="getTeacherById2" parameterType="java.lang.Integer" resultType="com.cybbj.test5.Teacher">
+		select t.i_id id,t.v_teacher_no teacherNo,t.v_teacher_name teacherName from t_teacher t where t.i_id=#{id}
+	</select>
+	<!-- 关联多表查询例子（嵌套查询） -->
+	<resultMap type="com.cybbj.test5.Classes" id="getClassByIdMap2">
+		<!-- id是专门针对主键 -->
+		<id property="id" column="i_id"/>
+		<!-- property 用于非主键 -->
+		<result property="classNo" column="v_class_no"/>
+		<result property="className" column="v_class_name"/>
+		<association property="teacher" column="i_teacher_id" select="getTeacherById2">
+		<!--
+			<id property="id" column="i_id"/>
+			<result property="teacherNo" column="v_teacher_no"/>
+			<result property="teacherName" column="v_teacher_name"/>
+		  -->
+		</association>
+	</resultMap>
+</mapper>

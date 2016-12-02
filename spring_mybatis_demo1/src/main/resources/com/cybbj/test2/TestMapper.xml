@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 用于单表增、删、改、查 -->  
+<mapper namespace="com.cybbj.test2.TestMapper">
+	<insert id="insertTest1" parameterType="java.lang.String">
+		insert into test(col2) values(#{val1})
+	</insert>
+	
+	<update id="updateTest1" parameterType="_Test">
+		update test set col2=#{col2} where col1=#{col1}
+	</update>
+	
+	<delete id="deleteTest1" parameterType="java.lang.Integer">
+		delete from test where col1=#{col1}
+	</delete>
+
+	<select id="selectTest1" parameterType="java.lang.Integer" resultType="_Test">
+		select * from test where col1=#{col1}
+	</select>
+</mapper>

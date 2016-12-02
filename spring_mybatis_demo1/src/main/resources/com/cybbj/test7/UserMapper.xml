@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 动态sql -->  
+<mapper namespace="com.cybbj.test7.UserMapper">
+	<!-- 使用动态sql中的if -->
+	<select id="getUserByConditionIf" parameterType="com.cybbj.test7.ConditionUser" resultType="com.cybbj.test7.User">
+		select i_id id,v_name name,i_age age from t_user where 
+			<if test="name!=null and name!=''">
+				v_name like "%"#{name}"%"
+			</if>
+			<if test="minAge!=null and minAge!=0 and maxAge!=null and maxAge!=''">
+				and i_age between #{minAge} and #{maxAge}
+			</if>
+	</select>
+	
+	<!-- 使用动态sql中的choose   选择第一个正确的 -->
+	<select id="getUserByConditionChoose" parameterType="com.cybbj.test7.ConditionUser" resultType="com.cybbj.test7.User">
+		select i_id id,v_name name,i_age age from t_user where 
+			<choose>
+				<when test="name!=null and name!=''">
+					v_name like "%"#{name}"%"
+				</when>
+				<when test="minAge!=null and minAge!=0 and maxAge!=null and maxAge!=''">
+					and i_age between #{minAge} and #{maxAge}
+				</when>
+				<otherwise>
+					i_id=1
+				</otherwise>
+			</choose>		
+	</select>
+	
+	<select id="getUserByConditionWhere" parameterType="com.cybbj.test7.ConditionUser" resultType="com.cybbj.test7.User">
+		select i_id id,v_name name,i_age age from t_user 
+			<where>
+				<if test="name!=null and name!=''">
+					v_name like "%"#{name}"%"
+				</if>
+				<if test="minAge!=null and minAge!=0 and maxAge!=null and maxAge!=''">
+					and i_age between #{minAge} and #{maxAge}
+				</if>
+			</where>
+	</select>
+	
+	<select id="getUserByConditionTrim" parameterType="com.cybbj.test7.ConditionUser" resultType="com.cybbj.test7.User">
+		select i_id id,v_name name,i_age age from t_user 
+			<trim prefix="where" prefixOverrides="and |or">
+				<if test="name!=null and name!=''">
+					and v_name like "%"#{name}"%"
+				</if>
+				<if test="minAge!=null and minAge!=0 and maxAge!=null and maxAge!=''">
+					and i_age between #{minAge} and #{maxAge}
+				</if>
+			</trim>
+	</select>
+	
+	<update id="updateUserByConditionSet" parameterType="com.cybbj.test7.ConditionUser">
+		update t_user
+			<set>
+				<if test="name!=null and name!=''">v_name=#{name},</if>
+				<if test="minAge!=null and minAge!=0">i_age=#{minAge},</if>
+			</set>
+			where i_id=1
+	</update>
+	
+	<select id="getUserByConditionForeach" parameterType="java.util.List" resultMap="getUserForeachMap">
+		select * from t_user
+		<where>
+			i_id in 
+				<foreach collection="list" item="tag" index="index" separator="," open="(" close=")">
+					#{tag}
+				</foreach>
+			
+		</where>
+	</select>
+	<resultMap type="com.cybbj.test7.User" id="getUserForeachMap">
+		<id property="id" column="i_id"/>
+		<result property="name" column="v_name"/>
+		<result property="age" column="i_age"/>
+	</resultMap>
+	
+	<select id="getUserByConditionBind" parameterType="com.cybbj.test7.ConditionUser" resultType="com.cybbj.test7.User">
+		<bind name="testBind" value="'%'+name+'%'"/>
+		select i_id id,v_name name,i_age age from t_user where v_name like #{testBind}
+	</select>
+	
+</mapper>
