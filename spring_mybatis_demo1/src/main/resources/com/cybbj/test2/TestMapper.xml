@@ -9,7 +9,7 @@
 		insert into test(col2) values(#{val1})
 	</insert>
 	
-	<update id="updateTest1" parameterType="_Test">
+	<update id="updateTest1" parameterType="com.cybbj.pojo.Test">
 		update test set col2=#{col2} where col1=#{col1}
 	</update>
 	
@@ -17,7 +17,7 @@
 		delete from test where col1=#{col1}
 	</delete>
 
-	<select id="selectTest1" parameterType="java.lang.Integer" resultType="_Test">
+	<select id="selectTest1" parameterType="java.lang.Integer" resultType="com.cybbj.pojo.Test">
 		select * from test where col1=#{col1}
 	</select>
 </mapper>

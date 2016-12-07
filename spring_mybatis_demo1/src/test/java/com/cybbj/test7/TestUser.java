@@ -47,8 +47,8 @@ public class TestUser {
 	
 	@Test
 	public void userTest() {
-		//ConditionUser conditionUser = new ConditionUser("劲", 20, 30);
-		//List<User> oList = sqlSession.selectList("com.cybbj.test7.UserMapper.getUserByConditionIf", conditionUser);
+		ConditionUser conditionUser = new ConditionUser("劲", 20, 30);
+		List<User> oList = sqlSession.selectList("com.cybbj.test7.UserMapper.getUserByConditionIf", conditionUser);
 		//List<User> oList = sqlSession.selectList("com.cybbj.test7.UserMapper.getUserByConditionChoose", conditionUser);
 		//List<User> oList = sqlSession.selectList("com.cybbj.test7.UserMapper.getUserByConditionWhere", conditionUser);
 		//List<User> oList = sqlSession.selectList("com.cybbj.test7.UserMapper.getUserByConditionTrim", conditionUser);
@@ -64,8 +64,8 @@ public class TestUser {
 		List<User> oList = sqlSession.selectList("com.cybbj.test7.UserMapper.getUserByConditionForeach", oTempList);
 		System.out.println(oList.toString());*/
 		
-		ConditionUser conditionUser = new ConditionUser("洗", 0, 0);
-		List<User> oList = sqlSession.selectList("com.cybbj.test7.UserMapper.getUserByConditionBind", conditionUser);
+		conditionUser = new ConditionUser("洗", 0, 0);
+		oList = sqlSession.selectList("com.cybbj.test7.UserMapper.getUserByConditionBind", conditionUser);
 		System.out.println(oList.toString());
 	}
 	

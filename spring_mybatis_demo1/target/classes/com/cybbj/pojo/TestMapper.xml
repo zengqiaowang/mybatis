@@ -4,7 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="com.cybbj.pojo.TestMapper">
-	<select id="selectTest1" resultType="_Test">
+	<select id="selectTest1" resultType="com.cybbj.pojo.Test">
 		select * from test
 	</select>
 </mapper>

@@ -1,4 +1,6 @@
 com\cybbj\test8\TestUserCache.class
+com\cybbj\test10\TestMybatisPage.class
+com\cybbj\test11\BatchOperateTest.class
 com\cybbj\test4\TestOrder1.class
 com\cybbj\pojo\TestMapperTest.class
 com\cybbj\test5\TestClasses.class

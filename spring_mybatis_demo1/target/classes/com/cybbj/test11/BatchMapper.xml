@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 批处理sql -->  
+<mapper namespace="com.cybbj.test11.BatchOperate">
+	<!-- 插入批处理 -->
+	<insert id="insertBatch" parameterType="java.util.List" useGeneratedKeys="true">
+		insert into t_user(v_name,i_age) values
+		<foreach collection="list" index="index" item="user" open="" close="" separator=","> 
+				(#{user.name,jdbcType=VARCHAR},#{user.minAge,jdbcType=INTEGER})
+		</foreach>
+	</insert>
+
+	
+</mapper>

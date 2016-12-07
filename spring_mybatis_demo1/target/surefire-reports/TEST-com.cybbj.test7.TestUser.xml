@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite failures="0" time="0.157" errors="0" skipped="0" tests="1" name="com.cybbj.test7.TestUser">
+<testsuite failures="0" time="0.127" errors="0" skipped="0" tests="1" name="com.cybbj.test7.TestUser">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="D:\install_soft\Java\jdk1.7.0_60\jre\bin"/>
@@ -26,7 +26,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="user.variant" value=""/>
     <property name="os.name" value="Windows 8.1"/>
-    <property name="classworlds.conf" value="E:\MyEclipse\workplace\.metadata\.plugins\org.eclipse.m2e.core\launches\m2conf7520476648894469374.tmp"/>
+    <property name="classworlds.conf" value="E:\MyEclipse\workplace\.metadata\.plugins\org.eclipse.m2e.core\launches\m2conf7487000085179819629.tmp"/>
     <property name="sun.jnu.encoding" value="GBK"/>
     <property name="java.library.path" value="D:\install_soft\Java\jdk1.7.0_60\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;D:/install_soft/MyEclipse10.7/Common/binary/com.sun.java.jdk.win32.x86_1.6.0.013/jre/bin/client;D:/install_soft/MyEclipse10.7/Common/binary/com.sun.java.jdk.win32.x86_1.6.0.013/jre/bin;D:/install_soft/MyEclipse10.7/Common/binary/com.sun.java.jdk.win32.x86_1.6.0.013/jre/lib/i386;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;D:\install_soft\OpenSSL-Win32\bin;D:\install_soft\apache-ant-1.9.6\bin;D:\install_soft\apache-maven-3.2.5\bin;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;D:\install_soft\tortoise\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\strawberry\c\bin;C:\strawberry\perl\bin;C:\Program Files\MySQL\MySQL Utilities 1.6\;D:\install_soft\Java\jdk1.8.101\bin;D:\install_soft\Java\jdk1.8.101\jre\bin;;C:\Users\15989\AppData\Local\Microsoft\WindowsApps;."/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
@@ -60,5 +60,5 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="pentium_pro+mmx pentium_pro pentium+mmx pentium i486 i386 i86"/>
   </properties>
-  <testcase time="0.157" classname="com.cybbj.test7.TestUser" name="userTest"/>
+  <testcase time="0.127" classname="com.cybbj.test7.TestUser" name="userTest"/>
 </testsuite>
