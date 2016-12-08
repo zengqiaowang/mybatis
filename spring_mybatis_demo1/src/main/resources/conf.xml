@@ -31,5 +31,6 @@
 	  <mapper resource="com/cybbj/test6/ClassMapper.xml"/>
 	  <mapper resource="com/cybbj/test7/UserMapper.xml"/>
 	  <mapper resource="com/cybbj/test8/UserMapper.xml"/>
+	  <mapper resource="com/cybbj/test12/UserMapper.xml"/>
 	</mappers>
 </configuration>

@@ -7,6 +7,8 @@ package com.cybbj.test11;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.impl.Log4jFactory;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,12 +28,15 @@ import com.cybbj.test7.ConditionUser;
 @ContextConfiguration("classpath*:applicationContext.xml")
 public class BatchOperateTest {
 	
+	private Log log = Log4jFactory.getLog(BatchOperateTest.class);
+	
 	@Autowired
 	private BatchOperate batchOperate;
 	
 	@Test
 	public void insertBatchTest() {
-		List<ConditionUser> oList = new ArrayList<ConditionUser>();
+		log.info(">>>批处理开始");
+	/*	List<ConditionUser> oList = new ArrayList<ConditionUser>();
 		ConditionUser conditionUser = new ConditionUser("桥旺1", 28, 28);
 		oList.add(conditionUser);
 		conditionUser = new ConditionUser("桥旺2", 28, 28);
@@ -40,6 +45,7 @@ public class BatchOperateTest {
 		oList.add(conditionUser);
 		conditionUser = new ConditionUser("桥旺4", 28, 28);
 		oList.add(conditionUser);
-		batchOperate.insertBatch(oList);
+		batchOperate.insertBatch(oList);*/
+		log.info(">>>批处理结束");
 	}
 }

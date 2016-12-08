@@ -4,6 +4,9 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
 	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
 
+	<listener>
+		<listener-class>com.cybbj.utils.LogBasePath</listener-class>
+	</listener>
 	<!-- 从类路径下加载Spring配置文件,classpath关键字特指类路径下加载 -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>

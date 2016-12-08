@@ -28,11 +28,11 @@ public class TestMybatisAndSpring {
 	/*@Autowired
 	private UserDaoInterface userDaoInterface;*/
 	
-	@Test
+	/*@Test
 	public void insertUserTest() {
 		ApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
 		UserDaoInterface userDaoInterface = (UserDaoInterface) applicationContext.getBean("userDaoInterface");
 		ConditionUser conditionUser = new ConditionUser("桥旺", 28, 0);
 		userDaoInterface.insertUser(conditionUser);
-	}
+	}*/
 }

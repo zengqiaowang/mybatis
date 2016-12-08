@@ -6,6 +6,7 @@ com\cybbj\pojo\TestMapperTest.class
 com\cybbj\test5\TestClasses.class
 com\cybbj\test7\TestUser.class
 com\cybbj\test3\TestMapper3.class
+com\cybbj\test12\TestInsertUserGetId.class
 com\cybbj\test9\TestMybatisAndSpring.class
 com\cybbj\test6\TestClasses.class
 com\cybbj\test2\TestMapperTest.class

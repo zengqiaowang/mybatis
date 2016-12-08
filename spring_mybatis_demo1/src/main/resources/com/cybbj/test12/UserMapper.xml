@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 获取mysql自增长主键 -->
+<mapper namespace="com.cybbj.test12.insertUseGetID">
+
+	<insert id="insertUserGetId" useGeneratedKeys="true" keyProperty="id" parameterType="com.cybbj.test7.User">
+		insert into t_user(v_name,i_age) values(#{name},#{age})
+	</insert>
+
+</mapper>

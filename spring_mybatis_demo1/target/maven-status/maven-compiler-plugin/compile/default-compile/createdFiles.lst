@@ -4,6 +4,7 @@ com\cybbj\utils\NamePasswordEncryptUtil.class
 com\cybbj\test7\ConditionUser.class
 com\cybbj\test4\Order.class
 com\cybbj\test6\Classes.class
+com\cybbj\utils\LogBasePath.class
 com\cybbj\test3\InterfacePojo.class
 com\cybbj\test11\BatchOperate.class
 com\cybbj\test5\Teacher.class

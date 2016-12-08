@@ -4,14 +4,12 @@
  */
 package com.cybbj.test10;
 
-import java.util.List;
-
 import com.cybbj.test7.ConditionUser;
 import com.cybbj.test7.User;
 import com.github.pagehelper.Page;
 
 /** 
- * UserDaoInterface: 用户操作接口
+ * UserDaoInterface: 用户操作接口   mybatis与spring集成之后
  * 
  * @version 1.0
  * @author 15989
